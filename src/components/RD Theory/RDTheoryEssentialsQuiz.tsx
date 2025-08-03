@@ -4,7 +4,7 @@ import QuizQuestion from '../QuizQuestion';
 
 const { Title } = Typography;
 
-function shuffleArray(array) {
+function shuffleArray(array) => {
   for (let i = array.length - 1; i > 0; i--) {
     // Generate a random index from 0 to i
     const j = Math.floor(Math.random() * (i + 1));
@@ -278,7 +278,7 @@ const RDTheoryQuiz = () => {
         NEXT
       </Button>
       <Carousel ref={carouselRef} effect="fade" dots={false}>
-        {suffledQuestions.map((element, index) => {
+        {suffledQuestions.map((element: any, index: number) => {
           return <QuizQuestion element={element} index={index} />;
         })}
       </Carousel>
@@ -287,3 +287,4 @@ const RDTheoryQuiz = () => {
 };
 
 export default RDTheoryQuiz;
+
