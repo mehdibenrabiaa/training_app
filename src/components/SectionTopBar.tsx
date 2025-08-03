@@ -3,8 +3,11 @@ import { HomeFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 const { Title } = Typography;
+interface Props {
+  title: string;
+}
 
-const SectionTopBar = ({ title }) => {
+const SectionTopBar = ({ title }: Props) => {
   return (
     <Flex
       justify="space-between"
@@ -27,3 +30,4 @@ const SectionTopBar = ({ title }) => {
 };
 
 export default SectionTopBar;
+
