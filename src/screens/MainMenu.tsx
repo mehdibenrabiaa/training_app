@@ -31,7 +31,7 @@ const MainMenu = () => {
     setPageAnimation('animation-release');
   }, []);
 
-  const transition = (path) => {
+  const transition = (path: string) => {
     setAnimation(true);
     setTimeout(function () {
       navigate(path);
@@ -167,3 +167,4 @@ const MainMenu = () => {
 };
 
 export default MainMenu;
+
