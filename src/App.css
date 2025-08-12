@@ -1,0 +1,211 @@
+.app-container {
+  font-family: Aboreto, ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+.no-select {
+  user-select: none;
+}
+body {
+  margin: 0;
+}
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.para {
+  font-size: 16px;
+}
+
+.animation-class {
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: 1s;
+}
+
+.animation-release {
+  opacity: 1;
+  transition: 1s;
+}
+h2 {
+  font-size: 25px;
+}
+
+.main-menu-container {
+  transition: 800ms;
+  background: linear-gradient(
+    223deg,
+    rgba(10, 93, 225, 0.2) 0%,
+
+    rgba(247, 247, 247, 1) 51%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.main-menu-animation {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.main-menu-background {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+}
+
+.main-menu-leyton-logo {
+  filter: drop-shadow(0 -6mm 4mm rgb(75, 9, 217));
+}
+.main-menu-box {
+  min-width: 170px;
+  min-height: 120px;
+  color: #ffff;
+  background: linear-gradient(
+    158deg,
+    rgb(75, 9, 217) 0%,
+    rgb(10, 93, 225) 100%
+  );
+
+  padding: 20px;
+  width: 180px;
+  height: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),
+    0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  transition: background-position 1s ease-in-out;
+  border: 1px solid rgb(121, 66, 249);
+  margin: 10px;
+}
+.main-menu-box:hover {
+  background: linear-gradient(158deg, rgb(55, 0, 180) 0%, rgb(5, 70, 200) 100%);
+
+  background-position: 0 100%;
+}
+.quiz-option {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  height: 120px;
+  word-wrap: break-word;
+  white-space: normal;
+  width: auto;
+}
+.react-flow__viewport {
+  touch-action: auto !important;
+  overscroll-behavior: auto !important;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #afafaf;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.katex {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 14px; /* match AntD Typography size */
+  font-weight: normal;
+}
+
+/* .quiz-option:hover {
+  background-color: #d3adf7;
+} */
+
+/* .quiz-option:active {
+  background-color: #9254de;
+} */
+
+/* .quiz-option::before {
+  content: '';
+  position: relative;
+  left: 0;
+  top: 0;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #9254de;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+} */
+/* 
+.option-one::before {
+  content: '1';
+}
+
+.option-two::before {
+  content: '2';
+}
+
+.option-three::before {
+  content: '3';
+}
+
+.option-four::before {
+  content: '4';
+} */
+
+.quiz-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(55, 0, 180);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
