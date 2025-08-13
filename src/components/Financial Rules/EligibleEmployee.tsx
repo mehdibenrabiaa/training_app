@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Typography, List, Alert, Divider } from "antd";
-import { CheckCircleOutlined, InfoCircleOutlined   } from "@ant-design/icons";
+import { CheckCircleOutlined   } from "@ant-design/icons";
 const { Title, Text, Paragraph } = Typography;
 import "reactflow/dist/style.css";
 import EssentialRulesFlow from "./EssentialRulesFlow";
@@ -95,3 +95,4 @@ function EligibleEmployee() {
 }
 
 export default EligibleEmployee;
+
