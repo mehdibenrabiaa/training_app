@@ -1,6 +1,6 @@
  
 import { Typography, List, Alert } from 'antd';
-import { CheckOutlined    } from '@ant-design/icons';
+import { CheckOutlined } from '@ant-design/icons';
 import { motion } from 'motion/react';
 const { Title, Text, Paragraph } = Typography;
 

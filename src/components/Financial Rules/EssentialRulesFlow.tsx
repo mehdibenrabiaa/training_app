@@ -38,18 +38,18 @@ const monthIndex = {
 };
 
 const contractualHoursByMonth = {
-  January: 168,
+  January: 176,
   February: 160,
   March: 168,
   April: 160,
   May: 160,
-  June: 152,
+  June: 144,
   July: 184,
   August: 168,
   September: 176,
   October: 184,
   November: 160,
-  December: 152,
+  December: 168,
 };
 
 type MonthKey = keyof typeof contractualHoursByMonth;
