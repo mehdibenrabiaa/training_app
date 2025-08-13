@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, {  useRef } from "react";import { motion } from 'motion/react';
 import { Carousel, Typography, Button } from "antd";
 import QuizQuestion from "../QuizQuestion";
 
@@ -180,12 +180,9 @@ const quizElements = [
 const shuffledQuestions = shuffleArray(quizElements);
 
 const RDTheoryQuiz = () => {
-  const [animation, setAnimation] = useState("animation-class");
+ 
   const carouselRef = useRef<React.ElementRef<typeof Carousel>>(null); // Create a reference to the Carousel
-
-  useEffect(() => {
-    setAnimation("animation-release");
-  }, []);
+ 
 
   const handleNext = () => {
     if (carouselRef.current) {
@@ -194,7 +191,12 @@ const RDTheoryQuiz = () => {
   };
 
   return (
-    <div className={`app-container ${animation}`} style={{ maxWidth: 900 }}>
+    <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay:  0.3, duration: 0.8 }}
+   >
+    <div className={`app-container`} style={{ maxWidth: 900 }}>
       <Button onClick={handleNext} style={{ marginBottom: 5 }}>
         NEXT
       </Button>
@@ -204,6 +206,7 @@ const RDTheoryQuiz = () => {
         })}
       </Carousel>
     </div>
+    </motion.div>
   );
 };
 

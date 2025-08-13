@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+ 
+import { motion } from 'motion/react';
+ 
 import { Typography, Flex, Button, Row, Col } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import {
-  TeamOutlined,
   RightOutlined,
-  FileExcelOutlined,
-  SettingOutlined,
   ReadOutlined,
   TranslationOutlined,
   LinkOutlined,
@@ -22,131 +21,139 @@ const miniIcons = [
   { icon: <FileOutlined />, title: "Templates" },
 ];
 
+
+const menu = [
+  {
+    title: "R&D in Theory",
+    desc : "Introduction to the Swedish R&D Financial Rules",
+    page: 'rd_theory'
+  },
+    {
+    title: "Onboarding",
+    desc : "Internal Protocol for Onboarding New Clients",
+    page: 'onboarding'
+  },    {
+    title: "Financial Costing",
+    desc : "Introducing Excel's Workbook Structure",
+    page: 'financial_costing'
+  },    {
+    title: "Admin",
+    desc : "Undertsanding Trackers & Galileo Admin",
+    page: 'admin'
+  } 
+]
+
 const MainMenu = () => {
   const navigate = useNavigate();
-  const [animation, setAnimation] = useState(false);
+  
 
-  const [pageAnimation, setPageAnimation] = useState("animation-class");
-  useEffect(() => {
-    setPageAnimation("animation-release");
-  }, []);
-
+ 
   const transition = (path: string) => {
-    setAnimation(true);
+     
     setTimeout(function () {
       navigate(path);
     }, 600);
   };
+  const titleLines = [{
+    text: <Title  
+    style={{
+      fontSize: 60, fontWeight: 700,lineHeight: 1, margin: 5
+    }} 
+    >Sweden's R&D Tax</Title>,
+   
+  }, {
+     text: <Title  
+    style={{
+      fontSize: 60, fontWeight: 700, lineHeight: 1,  margin: 5
+    }} 
+    >Incentive Training App</Title>,
+   
+  } , {
+    text: <Text
+    style={{color: "rgb(9, 88, 217)", fontSize: 30, fontWeight: 200, lineHeight: 1.5}}
+    >A Comprehensive Guide to R&D Tax Incentives Essentials in Sweden</Text>,
+ 
+  }
+    
 
+   
+  ];
   return (
     <Flex
-      style={{ height: "100vh" }}
+      style={{ height: "100vh" , padding: 20}}
       align="center"
       vertical
-      className={`main-menu-container animated-bg ${pageAnimation} ${
-        animation ? "main-menu-animation" : ""
-      }`}
+      className={`main-menu-container animated-bg  `}
     >
       <img
         src={leyton_logo}
         className="main-menu-leyton-logo"
         style={{ width: 90, marginTop: 10 }}
       />
-      <Title
-        className="no-select"
-        level={1}
-        style={{
-          maxWidth: 600,
-          fontSize: 50,
-          fontWeight: 700,
-          textAlign: "center",
-          marginBottom: 10,
-          lineHeight: 1,
-        }}
-      >
-        Sweden's R&D Tax Incentive Training App
-      </Title>
-      <Title
-        className="no-select"
-        level={2}
-        style={{
-          fontSize: 24,
-          textAlign: "center",
-          marginTop: 0,
-          fontWeight: 300,
-          color: "#0958d9",
-        }}
-      >
-        A Comprehensive Guide to R&D Tax Incentives Essentials in Sweden
-      </Title>
+      <div style={{ textAlign: "center" }}>
+      {titleLines.map((item, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.3, duration: 0.6 }}
+       
+         >
+          {item.text}
+        </motion.div>
+      ))}
+    </div>
+      
+       
 
       <Flex style={{ marginTop: 30 }}>
-        <div
-          className="main-menu-box no-select"
-          onClick={() => {
-            transition("rd_theory");
-          }}
-        >
-          <Flex align="center" style={{ marginBottom: 10 }}>
-            <ReadOutlined style={{ fontSize: 30, color: "#f9f0ff" }} />
-            <Title level={5} style={{ color: "#f9f0ff", margin: "0 0 0 10px" }}>
-              R&D in Theory
-            </Title>
-          </Flex>
-          <Text type="secondary" style={{ color: "#f9f0ff" }}>
-            Introduction to the Swedish R&D Financial Rules
-          </Text>
-        </div>
-        <RightOutlined />
-        <div className="main-menu-box no-select">
-          <Flex align="center" style={{ marginBottom: 10 }}>
-            <TeamOutlined style={{ fontSize: 30, color: "#f9f0ff" }} />
-            <Title level={5} style={{ color: "#f9f0ff", margin: "0 0 0 10px" }}>
-              Onboarding
-            </Title>
-          </Flex>
-          <Text type="secondary" style={{ color: "#f9f0ff" }}>
-            Internal Protocol for Onboarding New Clients
-          </Text>
-        </div>
-        <RightOutlined />
-        <div
-          className="main-menu-box no-select"
-          onClick={() => {
-            transition("rd_theory");
-          }}
-        >
-          <Flex align="center" style={{ marginBottom: 10 }}>
-            <FileExcelOutlined style={{ fontSize: 30, color: "#f9f0ff" }} />
-            <Title level={5} style={{ color: "#f9f0ff", margin: "0 0 0 10px" }}>
-              Financial Costing
-            </Title>
-          </Flex>
-          <Text type="secondary" style={{ color: "#f9f0ff" }}>
-            Introducing Excel's Workbook Structure
-          </Text>
-        </div>
-        <RightOutlined />
-        <div
-          className="main-menu-box no-select"
-          onClick={() => {
-            transition("rd_theory");
-          }}
-        >
-          <Flex align="center" style={{ marginBottom: 10 }}>
-            <SettingOutlined style={{ fontSize: 30, color: "#f9f0ff" }} />
-            <Title level={5} style={{ color: "#f9f0ff", margin: "0 0 0 10px" }}>
-              Admin
-            </Title>
-          </Flex>
-          <Text type="secondary" style={{ color: "#f9f0ff" }}>
-            Undertsanding Trackers & Galileo Admin
-          </Text>
-        </div>
-      </Flex>
+    
+         
+       {
+        menu.map((x, index) => {
+          return (
+           
+                      <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.15, duration: 2 }}
+          >
 
+            <div
+            className="main-menu-box no-select"
+            onClick={() => {
+              transition(x.page);
+            }}
+            >
+            <Flex align="center" style={{ marginBottom: 10 }}>
+              <ReadOutlined style={{ fontSize: 30, color: "#f9f0ff" }} />
+              <Title level={5} style={{ color: "#f9f0ff", margin: "0 0 0 10px" }}>
+           {x.title}
+              </Title>
+            </Flex>
+            <Text type="secondary" style={{ color: "#f9f0ff" }}>
+              {x.desc}
+            </Text>
+          <RightOutlined />
+          </div>
+            </ motion.div>
+       
+          
+          )
+        })
+       }
+        
+      
+     
+      </Flex>
+      <motion.div
+             initial={{ opacity: 0, y: 50 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ delay:   0.15, duration: 2 }}
+           >
       <Row>
-        {miniIcons.map((item) => (
+        {miniIcons.map((item  ) => (
+            
           <Col
             span={6}
             key={item.title}
@@ -160,8 +167,10 @@ const MainMenu = () => {
               {item.title}
             </Text>
           </Col>
+     
         ))}
       </Row>
+      </motion.div>
     </Flex>
   );
 };

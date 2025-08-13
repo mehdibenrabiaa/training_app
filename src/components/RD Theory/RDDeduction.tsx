@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+ 
+import { motion } from 'motion/react';
 import { Typography, Popover, Timeline, Steps } from 'antd';
 import { QuestionCircleTwoTone } from '@ant-design/icons';
 import AudioPlayer from '../AudioPlayer';
@@ -30,12 +31,15 @@ const popoverContent = {
 };
 
 function RDDeduction() {
-  const [animation, setAnimation] = useState('animation-class');
-  useEffect(() => {
-    setAnimation('animation-release');
-  }, []);
+ 
   return (
-    <div className={`app-container ${animation}`} style={{ maxWidth: 900 }}>
+    <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay:  0.3, duration: 0.8 }}
+   >
+  
+    <div className={`app-container`} style={{ maxWidth: 900 }}>
       <div style={{ textAlign: 'left' }}>
         <Title
           level={1}
@@ -196,6 +200,7 @@ function RDDeduction() {
         </ul>
       </div>
     </div>
+    </motion.div>
   );
 }
 

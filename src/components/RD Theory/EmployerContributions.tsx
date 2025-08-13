@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Typography, Popover } from 'antd';
 import { QuestionCircleTwoTone } from '@ant-design/icons';
-
+import { motion } from 'motion/react';
 const { Title, Text, Paragraph } = Typography;
 
 const popoverContent = {
@@ -21,6 +21,11 @@ const EmployerContributions = () => {
     setAnimation('animation-release');
   }, []);
   return (
+    <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay:  0.3, duration: 0.8 }}
+   >
     <div className={`app-container ${animation}`} style={{ maxWidth: 900 }}>
       <div style={{ textAlign: 'left' }}>
         <Title
@@ -89,6 +94,7 @@ const EmployerContributions = () => {
         </Paragraph>
       </div>
     </div>
+    </motion.div>
   );
 };
 

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+ 
 import { Typography, List, Alert } from 'antd';
-import { CheckOutlined } from '@ant-design/icons';
-
+import { CheckOutlined , InfoCircleOutlined   } from '@ant-design/icons';
+import { motion } from 'motion/react';
 const { Title, Text, Paragraph } = Typography;
 
 const thingsToRememeber = [
@@ -18,12 +18,14 @@ const thingsToRememeber = [
 ];
 
 const RDTheorySummary = () => {
-  const [animation, setAnimation] = useState('animation-class');
-  useEffect(() => {
-    setAnimation('animation-release');
-  }, []);
+ 
   return (
-    <div className={`app-container ${animation}`} style={{ maxWidth: 900 }}>
+    <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay:  0.3, duration: 0.8 }}
+   >
+    <div className={`app-container`} style={{ maxWidth: 900 }}>
       <div style={{ textAlign: 'left' }}>
         <Title
           level={1}
@@ -77,21 +79,22 @@ const RDTheorySummary = () => {
           R&D employees.
         </Paragraph>
 
-        <Alert
+        <Alert  
           style={{ marginBottom: 50 }}
           message={<Text strong>Important Note:</Text>}
           description={
-            <Paragraph className="para">
+            <Paragraph className="para" >
               Understanding employer social security contributions is essential
               because the R&D deduction directly reduces these contributions,
               meaning companies that qualify pay less in employer fees for
               eligible R&D employees.
             </Paragraph>
           }
-          type="warning"
+          type="info"
         />
       </div>
     </div>
+    </motion.div>
   );
 };
 

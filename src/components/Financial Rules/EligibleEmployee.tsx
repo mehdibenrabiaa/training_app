@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { motion } from 'motion/react';
 import { Typography, List, Alert, Divider } from "antd";
-import { CheckCircleOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, InfoCircleOutlined   } from "@ant-design/icons";
 const { Title, Text, Paragraph } = Typography;
 import "reactflow/dist/style.css";
 import EssentialRulesFlow from "./EssentialRulesFlow";
@@ -20,12 +20,14 @@ const items = [
   </div>,
 ];
 function EligibleEmployee() {
-  const [animation, setAnimation] = useState("animation-class");
-  useEffect(() => {
-    setAnimation("animation-release");
-  }, []);
+ 
   return (
-    <div className={`app-container ${animation}`} style={{ maxWidth: 900 }}>
+    <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay:  0.3, duration: 0.8 }}
+   >
+    <div className={`app-container`} style={{ maxWidth: 900 }}>
       <div style={{ textAlign: "left" }}>
         <Title
           level={1}
@@ -55,19 +57,17 @@ function EligibleEmployee() {
       </div>
       <Alert
         type="info"
-        showIcon
         style={{ marginTop: 20, marginBottom: 50 }}
         message={
-          <div>
-            <Typography.Text strong>Note:</Typography.Text>
-            <Paragraph style={{ marginTop: 8 }}>
-              All of the above requirements apply within the scope of a{" "}
-              <strong>monthly study period</strong>. Our analysis is based
-              specifically on the hours worked during a particular month,
-              considering all related data for that month only.
-            </Paragraph>
-          </div>
-        }
+          <Typography.Text strong>Note:</Typography.Text> }
+        description = {
+          <Paragraph style={{ marginTop: 8 }}>
+        All of the above requirements apply within the scope of a{" "}
+        <strong>monthly study period</strong>. Our analysis is based
+        specifically on the hours worked during a particular month,
+        considering all related data for that month only.
+      </Paragraph>}
+        
       />
       <Divider />
       <Title level={4} style={{ marginBottom: 10 }}>
@@ -90,6 +90,7 @@ function EligibleEmployee() {
       </Paragraph>
       <EssentialRulesFlow />
     </div>
+    </motion.div>
   );
 }
 
